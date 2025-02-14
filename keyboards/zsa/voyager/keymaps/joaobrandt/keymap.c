@@ -1,12 +1,13 @@
+// Copyright 2025 Joao Paulo G. Brandt <joao@brandt.ws>
+// SPDX-License-Identifier: GPL-2.0-or-later
+
 #include QMK_KEYBOARD_H
-#include "version.h"
 #include "config.h"
 
 #define MOON_LED_LEVEL LED_LEVEL
-#define ML_SAFE_RANGE SAFE_RANGE
 
 enum custom_keycodes {
-    RGB_SLD = ML_SAFE_RANGE,
+    RGB_SLD = SAFE_RANGE,
     ST_MACRO_0,
     ST_MACRO_1,
     ST_MACRO_2,
