@@ -9,21 +9,19 @@
 enum layer_names { LY_DEFAULT, LY_BLUE, LY_PURPLE, LY_GREEN };
 
 enum custom_keycodes {
-    RGB_SLD = SAFE_RANGE,
-    ST_MACRO_0,
-    ST_MACRO_1,
-    ST_MACRO_2,
-    ST_MACRO_3,
-    ST_MACRO_4,
-    ST_MACRO_5,
-    ST_MACRO_6,
-    ST_MACRO_7,
-    ST_MACRO_8,
-    ST_MACRO_9,
-    ST_MACRO_10,
-    ST_MACRO_11,
-    ST_MACRO_12,
-    ST_MACRO_13,
+    PTBR_O_FLEX = SAFE_RANGE,
+    PTBR_O_ACUTE,
+    PTBR_O_TILDE,
+    PTBR_U_ACUTE,
+    PTBR_A_GRAVE,
+    PTBR_A_FLEX,
+    PTBR_A_ACUTE,
+    PTBR_TILDE,
+    PTBR_CEDILLA,
+    PTBR_E_FLEX,
+    PTBR_E_ACUTE,
+    PTBR_I_ACUTE,
+    PTBR_O_FLEX3,
 };
 
 /* ------------------------------------- */
@@ -33,7 +31,7 @@ enum custom_keycodes {
 #define HR_CTL_S MT(MOD_LCTL, KC_S)
 #define HR_ALT_D MT(MOD_LALT, KC_D)
 #define HR_CMD_F MT(MOD_LGUI, KC_F)
-#define HR_GUI_J MT(MOD_RGUI, KC_J)
+#define HR_CMD_J MT(MOD_RGUI, KC_J)
 #define HR_ALT_K MT(MOD_RALT, KC_K)
 #define HR_CTL_L MT(MOD_RCTL, KC_L)
 #define HR_SFT_SCLN MT(MOD_LSFT, KC_SCLN)
@@ -47,9 +45,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //├─────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┤ ├─────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┤
     KC_GRAVE,         KC_Q,             KC_W,             KC_E,             KC_R,             KC_T,               KC_Y,             KC_U,             KC_I,             KC_O,             KC_P,             KC_COLN,
 //├─────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┤ ├─────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┤
-    KC_TAB,           HR_SFT_A,         HR_CTL_S,         HR_ALT_D,         HR_CMD_F,         KC_G,               KC_H,             HR_GUI_J,         HR_ALT_K,         HR_CTL_L,         HR_SFT_SCLN,      KC_DQUO,
+    KC_TAB,           HR_SFT_A,         HR_CTL_S,         HR_ALT_D,         HR_CMD_F,         KC_G,               KC_H,             HR_CMD_J,         HR_ALT_K,         HR_CTL_L,         HR_SFT_SCLN,      KC_DQUO,
 //├─────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┤ ├─────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┤
-    OSL(LY_GREEN),    KC_Z,             KC_X,             KC_C,             KC_V,             KC_B,               KC_N,             KC_M,             KC_COMMA,         KC_DOT,           KC_SLASH,         ST_MACRO_0,
+    OSL(LY_GREEN),    KC_Z,             KC_X,             KC_C,             KC_V,             KC_B,               KC_N,             KC_M,             KC_COMMA,         KC_DOT,           KC_SLASH,         LCTL(KC_A),
 //╰─────────────────┴─────────────────┴─────────────────┴─────────────────┼─────────────────┼─────────────────┤ ├─────────────────┼─────────────────┼─────────────────┴─────────────────┴─────────────────┴─────────────────╯
                                                                             LT(LY_BLUE,KC_ESC), KC_SPACE,         KC_ENTER,         LT(LY_PURPLE,KC_BSPC)
 //                                                                        ╰─────────────────┴─────────────────╯ ╰─────────────────┴─────────────────╯
@@ -82,13 +80,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [LY_GREEN] = LAYOUT_voyager(
 //╭─────────────────┬─────────────────┬─────────────────┬─────────────────┬─────────────────┬─────────────────╮ ╭─────────────────┬─────────────────┬─────────────────┬─────────────────┬─────────────────┬─────────────────╮
-    QK_BOOT,          _______,          _______,          _______,          _______,          _______,            SUPER_M,          KC_MS_BTN2,       _______,          ST_MACRO_13,      _______,          _______,
+    QK_BOOT,          QK_DEBUG_TOGGLE,  _______,          _______,          _______,          _______,            SUPER_M,          _______,          _______,          _______,          _______,          _______,
 //├─────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┤ ├─────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┤
-    _______,          _______,          ST_MACRO_1,       ST_MACRO_2,       ST_MACRO_3,       ST_MACRO_4,         _______,          KC_7,             KC_8,             KC_9,             _______,          _______,
+    _______,          _______,          PTBR_O_FLEX,      PTBR_O_ACUTE,     PTBR_O_TILDE,     PTBR_U_ACUTE,       _______,          KC_7,             KC_8,             KC_9,             _______,          _______,
 //├─────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┤ ├─────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┤
-    _______,          ST_MACRO_5,       ST_MACRO_6,       ST_MACRO_7,       ST_MACRO_8,       ST_MACRO_9,         _______,          KC_4,             KC_5,             KC_6,             KC_0,             _______,
+    _______,          PTBR_A_GRAVE,     PTBR_A_FLEX,      PTBR_A_ACUTE,     PTBR_TILDE,       PTBR_CEDILLA,       _______,          KC_4,             KC_5,             KC_6,             KC_0,             _______,
 //├─────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┤ ├─────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┤
-    _______,          _______,          ST_MACRO_10,      ST_MACRO_11,      _______,          ST_MACRO_12,        _______,          KC_1,             KC_2,             KC_3,             _______,          _______,
+    _______,          _______,          PTBR_E_FLEX,      PTBR_E_ACUTE,      _______,         PTBR_I_ACUTE,       _______,          KC_1,             KC_2,             KC_3,             _______,          _______,
 //╰─────────────────┴─────────────────┴─────────────────┴─────────────────┼─────────────────┼─────────────────┤ ├─────────────────┼─────────────────┼─────────────────┴─────────────────┴─────────────────┴─────────────────╯
                                                                             _______,          _______,            _______,          _______
 //                                                                        ╰─────────────────┴─────────────────╯ ╰─────────────────┴─────────────────╯
@@ -232,82 +230,66 @@ bool rgb_matrix_indicators_user(void) {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case ST_MACRO_0:
-            if (record->event.pressed) {
-                SEND_STRING(SS_LCTL(SS_TAP(X_A)));
-            }
-            break;
-        case ST_MACRO_1:
+        case PTBR_O_FLEX:
             if (record->event.pressed) {
                 SEND_STRING(SS_LSFT(SS_TAP(X_6)) SS_DELAY(100) SS_TAP(X_O));
             }
             break;
-        case ST_MACRO_2:
+        case PTBR_O_ACUTE:
             if (record->event.pressed) {
                 SEND_STRING(SS_TAP(X_QUOTE) SS_DELAY(100) SS_TAP(X_O));
             }
             break;
-        case ST_MACRO_3:
+        case PTBR_O_TILDE:
             if (record->event.pressed) {
                 SEND_STRING(SS_LSFT(SS_TAP(X_GRAVE)) SS_DELAY(100) SS_TAP(X_O));
             }
             break;
-        case ST_MACRO_4:
+        case PTBR_U_ACUTE:
             if (record->event.pressed) {
                 SEND_STRING(SS_TAP(X_QUOTE) SS_DELAY(100) SS_TAP(X_U));
             }
             break;
-        case ST_MACRO_5:
+        case PTBR_A_GRAVE:
             if (record->event.pressed) {
                 SEND_STRING(SS_TAP(X_GRAVE) SS_DELAY(100) SS_TAP(X_A));
             }
             break;
-        case ST_MACRO_6:
+        case PTBR_A_FLEX:
             if (record->event.pressed) {
                 SEND_STRING(SS_LSFT(SS_TAP(X_6)) SS_DELAY(100) SS_TAP(X_A));
             }
             break;
-        case ST_MACRO_7:
+        case PTBR_A_ACUTE:
             if (record->event.pressed) {
                 SEND_STRING(SS_TAP(X_QUOTE) SS_DELAY(100) SS_TAP(X_A));
             }
             break;
-        case ST_MACRO_8:
+        case PTBR_TILDE:
             if (record->event.pressed) {
                 SEND_STRING(SS_LSFT(SS_TAP(X_GRAVE)) SS_DELAY(100) SS_TAP(X_A));
             }
             break;
-        case ST_MACRO_9:
+        case PTBR_CEDILLA:
             if (record->event.pressed) {
                 SEND_STRING(SS_TAP(X_QUOTE) SS_DELAY(100) SS_TAP(X_C));
             }
             break;
-        case ST_MACRO_10:
+        case PTBR_E_FLEX:
             if (record->event.pressed) {
                 SEND_STRING(SS_LSFT(SS_TAP(X_6)) SS_DELAY(100) SS_TAP(X_E));
             }
             break;
-        case ST_MACRO_11:
+        case PTBR_E_ACUTE:
             if (record->event.pressed) {
                 SEND_STRING(SS_TAP(X_QUOTE) SS_DELAY(100) SS_TAP(X_E));
             }
             break;
-        case ST_MACRO_12:
+        case PTBR_I_ACUTE:
             if (record->event.pressed) {
                 SEND_STRING(SS_TAP(X_QUOTE) SS_DELAY(100) SS_TAP(X_I));
             }
             break;
-        case ST_MACRO_13:
-            if (record->event.pressed) {
-                SEND_STRING(SS_LGUI(SS_LSFT(SS_TAP(X_4))));
-            }
-            break;
-
-        case RGB_SLD:
-            if (record->event.pressed) {
-                rgblight_mode(1);
-            }
-            return false;
     }
     return true;
 }
